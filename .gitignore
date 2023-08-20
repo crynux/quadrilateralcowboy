@@ -16,4 +16,7 @@ releaseaxp/
 ipch/
 _upgradereport_files/
 steam/
+build/
+sys/linux/glimp*
+allofit/
 makefile

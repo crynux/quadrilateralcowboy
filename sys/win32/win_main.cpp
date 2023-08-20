@@ -1388,6 +1388,8 @@ EXCEPTION_DISPOSITION __cdecl _except_handler( struct _EXCEPTION_RECORD *Excepti
 #define UMP_SKU "OSX"
 #elif	defined( __linux__ )
 #define UMP_SKU "Linux"
+#elif defined( __FreeBSD__ )
+#define UMP_SKU "FreeBSD"
 #else
 #define UMP_SKU "Win32"
 #endif

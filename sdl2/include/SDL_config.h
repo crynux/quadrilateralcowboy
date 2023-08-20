@@ -43,7 +43,7 @@
 #include "SDL_config_android.h"
 #elif defined(__PSP__)
 #include "SDL_config_psp.h"
-#elif defined(__linux__)
+#elif defined(__LINUX__) || defined (__FreeBSD__)
 #include "SDL_config_linux.h"
 #elif defined(EMSCRIPTEN)
 #include "SDL_config_emscripten.h"

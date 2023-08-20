@@ -491,8 +491,13 @@ else()
 	endif()
 endif()
 
+
 # Other Dependencies
-IF(APPLE)
+IF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+	set(OpenGL_GL_PREFERENCE "GLVND")
+	TARGET_LINK_LIBRARIES(qc PUBLIC openal)
+	include_directories("/usr/local/include")
+ELSEIF(APPLE)
 	FIND_LIBRARY(OPENGL NAMES OpenGL)
 	FIND_LIBRARY(OPENAL NAMES OpenAL)
 	FIND_LIBRARY(COCOA NAMES Cocoa)
@@ -503,6 +508,7 @@ ELSE()
 	TARGET_LINK_LIBRARIES(qc PUBLIC openal)
 ENDIF()
 TARGET_LINK_LIBRARIES(qc PUBLIC dl pthread)
+
 IF(STEAM)
 	TARGET_LINK_LIBRARIES(qc PUBLIC steam_api)
 ENDIF()

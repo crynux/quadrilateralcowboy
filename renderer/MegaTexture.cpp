@@ -55,14 +55,14 @@ static union {
 } fillColor;
 
 static byte	colors[8][4] = {
-	{ 0, 0, 0, 255 },
-	{ 255, 0, 0, 255 },
-	{ 0, 255, 0, 255 },
-	{ 255, 255, 0, 255 },
-	{ 0, 0, 255, 255 },
-	{ 255, 0, 255, 255 },
-	{ 0, 255, 255, 255 },
-	{ 255, 255, 255, 255 }
+	{ 0, 0, 0, MAX_BYTE },
+	{ MAX_BYTE, 0, 0, MAX_BYTE },
+	{ 0, MAX_BYTE, 0, MAX_BYTE },
+	{ MAX_BYTE, MAX_BYTE, 0, MAX_BYTE },
+	{ 0, 0, MAX_BYTE, MAX_BYTE },
+	{ MAX_BYTE, 0, MAX_BYTE, MAX_BYTE },
+	{ 0, MAX_BYTE, MAX_BYTE, MAX_BYTE },
+	{ MAX_BYTE, MAX_BYTE, MAX_BYTE, MAX_BYTE }
 };
 
 static void R_EmptyLevelImage( idImage *image ) {
@@ -361,7 +361,7 @@ void idTextureLevel::UpdateTile( int localX, int localY, int globalX, int global
 
 	if ( idMegaTexture::r_showMegaTextureLabels.GetBool() ) {
 		// put a color marker in it
-		byte	color[4] = { 255 * localX / TILE_PER_LEVEL, 255 * localY / TILE_PER_LEVEL, 0, 0 };
+		byte	color[4] = { static_cast<byte>(MAX_BYTE * localX / TILE_PER_LEVEL), static_cast<byte>(MAX_BYTE * localY / TILE_PER_LEVEL), static_cast<byte>(0), static_cast<byte>(0) };
 		for ( int x = 0 ; x < 8 ; x++ ) {
 			for ( int y = 0 ; y < 8 ; y++ ) {
 				*(int *)&data[ ( ( y + TILE_SIZE/2 - 4 ) * TILE_SIZE + x + TILE_SIZE/2 - 4 ) * 4 ] = *(int *)color;

@@ -1,5 +1,5 @@
-#!/bin/bash
-set -ex
+#!/bin/tcsh
+
 cd "`dirname "$0"`"
 cd sys/linux
 m4 glimp_dlopen.cpp.m4 > glimp_dlopen.cpp

@@ -203,7 +203,7 @@ bool idEFXFile::LoadFile( const char *filename, bool OSPath ) {
 	}
 
 	if ( !src.ExpectTokenString( "Version" ) ) {
-		return NULL;
+		return 0;
 	}
 
 	if ( src.ParseInt() != 1 ) {

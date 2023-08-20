@@ -39,7 +39,7 @@
 /* @} */
 
 #ifndef SDL_BYTEORDER           /* Not defined in SDL_config.h? */
-#ifdef __linux__
+#if defined(__LINUX__) || defined( __FreeBSD__ )
 #include <endian.h>
 #define SDL_BYTEORDER  __BYTE_ORDER
 #else /* __linux __ */

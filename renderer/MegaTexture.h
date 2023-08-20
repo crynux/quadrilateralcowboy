@@ -30,7 +30,7 @@ class idTextureTile {
 public:
 	int		x, y;
 };
-
+static const int MAX_BYTE = 255;
 static const int TILE_PER_LEVEL = 4;
 static const int MAX_MEGA_CHANNELS = 3;		// normal, diffuse, specular
 static const int MAX_LEVELS = 12;

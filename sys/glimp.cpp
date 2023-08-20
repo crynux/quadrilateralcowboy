@@ -36,7 +36,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "../renderer/tr_local.h"
 
-#if !defined(ID_GL_HARDLINK) && defined(__linux__)
+#if !defined(ID_GL_HARDLINK) && (defined(__linux__) || defined(__FreeBSD__))
 #include "linux/local.h"
 #endif
 
@@ -68,7 +68,7 @@ GLimp_Init
 bool GLimp_Init(glimpParms_t parms) {
 	common->Printf("Initializing OpenGL subsystem\n");
 
-#if !defined(ID_GL_HARDLINK) && defined(__linux__)
+#if !defined(ID_GL_HARDLINK) && (defined(__linux__) || defined(__FreeBSD__))
 	if ( !GLimp_dlopen() ) {
 		return false;
 	}
@@ -184,7 +184,7 @@ bool GLimp_Init(glimpParms_t parms) {
 									parms.width, parms.height, flags);
 
 		// set the icon for linux.
-#ifdef __linux__
+#if defined(__LINUX__) || defined( __FreeBSD__ )
 		SDL_Surface* iconSurface = SDL_LoadBMP("Icon.bmp");
 	    if (iconSurface)
 	    {
@@ -222,7 +222,7 @@ bool GLimp_Init(glimpParms_t parms) {
 				"Graphics Error",
 				"Your computer doesn't support 32bit color, 24bit depth and 8bit stencil.  Try installing latest graphics drivers",
 				NULL);
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__FreeBSD__)
 			exit(2);
 #else
 			_exit(2);

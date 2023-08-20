@@ -103,7 +103,7 @@ If you have questions concerning this license or the applicable additional terms
 #include <typeinfo>
 #include <errno.h>
 #include <math.h>
-#ifdef __linux__
+#if defined(__LINUX__) || defined( __FreeBSD__ )
 #include <unistd.h>
 #elif defined __APPLE__
 #include <algorithm>
@@ -116,7 +116,7 @@ using std::min;
 #define SDL_MAIN_HANDLED 1
 #include "../sdl2/include/SDL.h"
 #else
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__FreeBSD__)
 #include <SDL.h>
 #else
 #include <SDL2/SDL.h> // Really should just be SDL.h but oh welllll -flibit

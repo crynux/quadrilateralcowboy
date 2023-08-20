@@ -2147,7 +2147,7 @@ bool idWindow::ParseRegEntry(const char *name, idParser *src) {
 	work = name;
 	work.ToLower();
 
-	idWinVar *var = GetWinVarByName(work, NULL);
+	idWinVar *var = GetWinVarByName(work, 0);
 	if ( var ) {
 		for (int i = 0; i < NumRegisterVars; i++) {
 			if (idStr::Icmp(work, RegisterVars[i].name) == 0) {
