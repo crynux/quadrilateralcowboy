@@ -1,5 +1,12 @@
 # Quadrilateral Cowboy
 
+## Note about this fork
+I created this fork for building on FreeBSD. There are 2 scripts to help with that.
+1. freebsd_install_deps.csh - can be used to install dependencies for building.
+2. freebsd_build.csh - can be used to build on FreeBSD.
+
+If you find any issues running this on FreeBSD, please feel free to either create an issue or a PR; thanks!
+
 ## About
 This is the source code to [Quadrilateral Cowboy (2016)](http://blendogames.com/qc), a first-person hacking adventure in a cyberpunk world. The game is available for purchase at [Steam](https://store.steampowered.com/app/240440/Quadrilateral_Cowboy) and [itch.io](https://blendogames.itch.io/quadrilateralcowboy).
 
